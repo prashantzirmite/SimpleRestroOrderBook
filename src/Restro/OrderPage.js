@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
 import {connect} from "react-redux"
+import BillPage from './BillPage';
 
 class OrderPage extends Component {
     constructor(props) {
         super(props);
         this.store = this.props.store;
+        this.state={
+          message:"Welcome"
+        }
       }
- 
+      setMessage=()=>{this.setState(state=>{ return {message:"Thank You... Visit Again"}})}
       adder=(e)=>{
         //   alert(`added ${e.target.name} count ${this.props.counts}`)
           switch (e.target.name)
@@ -60,6 +64,10 @@ class OrderPage extends Component {
                             </div>
                 
                 </div>
+                <BillPage/><br></br>
+                <button className="btn btn-success" onClick={this.setMessage}>Print Bill</button><br></br>
+                <p>{this.state.message}</p><br/><br/>
+                <button className="btn btn-success" onClick={() => window.location.reload(false)}>Reset</button><br></br>
             </div>
         )
     }
@@ -67,7 +75,7 @@ class OrderPage extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        // ...state,
+        ...state,
       counts: state
     };
  };
