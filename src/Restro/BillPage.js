@@ -6,6 +6,7 @@ class BillPage extends Component {
         const{items}=this.props;
         // var n=items.length();
         // console.log(n)
+        //Added by Prashnat
         var n=1;
         console.log(items)
         return (
